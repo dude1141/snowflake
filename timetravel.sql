@@ -42,7 +42,7 @@ SELECT * FROM OUR_FIRST_DB.public.test;
 --UPDATE OUR_FIRST_DB.public.test
 SET FIRST_NAME = 'Joyen' ;
 
-
+#to retrive previous information use offset
 SELECT * FROM OUR_FIRST_DB.public.test at (OFFSET => -60*12);
 
 #click on QueryID SELECT * FROM OUR_FIRST_DB.public.test and then click on query history where you used update statement and copy the queryid   
