@@ -23,16 +23,14 @@ DROP SCHEMA OUR_FIRST_DB.COPIED_SCHEMA
 
 
 #cloning creates copy
-#Answer: Zero-copy cloning refers to Snowflake&#39;s ability to create clones that do
-not duplicate data. Instead, the clone references the original data at the time
-of cloning. Any subsequent changes to the original or the clone are stored
-separately, allowing them to diverge over time.
+#Answer: Zero-copy cloning refers to Snowflakes ability to create clones that do not duplicate data.
+Instead, the clone references the original data at the time of cloning.
+Any subsequent changes to the original or the clone are stored separately, allowing them to diverge over time.
 
 you can create clone and use TimeTravel:
 
-CREATE TABLE my_table_clone CLONE my_table AT (TIMESTAMP =&gt; &#39;2023-07-
-01 12:00:00&#39;);
- Creating a clone of a database as it existed at a specific timestamp:
+CREATE TABLE my_table_clone CLONE my_table AT (TIMESTAMP = 2023-07-01 12:00:0039;);
+Creating a clone of a database as it existed at a specific timestamp:
 
 
   
