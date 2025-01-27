@@ -32,5 +32,6 @@ you can create clone and use TimeTravel:
 CREATE TABLE my_table_clone CLONE my_table AT (TIMESTAMP = 2023-07-01 12:00:0039;);
 Creating a clone of a database as it existed at a specific timestamp:
 
+SELECT * FROM my_table AT (TIMESTAMP => 2023-07-01 12:00:0039);
 
   
