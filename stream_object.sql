@@ -1,3 +1,19 @@
+stream tracks internally tracks the changes (inserts,updates
+ deletes )made in to that table. 
+accomplished by micropartitions
+
+stream object--all  changes are captured in stream
+object.
+
+metadata action and metadata updates,based on this it loads in to target table.
+
+stream object in to target table,once consumed there will be no data in stream object.
+
+
+
+
+
+
 CREATE OR REPLACE DATABASE STREAMS_DB1;
 
 CREATE OR REPLACE TABLE sales_raw_staging (
