@@ -1,6 +1,6 @@
 stream tracks internally tracks the changes (inserts,updates  deletes )made in to that table. accomplished by micropartitions
 
-stream object--all  changes are captured in stream object. Its used for CDC logic
+stream object--all  changes are captured in stream object. Its used for CDC logic and implement autoincrmental load
 
 metadata action and metadata updates,based on this it loads in to target table.
 
