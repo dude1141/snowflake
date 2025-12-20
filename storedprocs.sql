@@ -356,7 +356,7 @@ select * from ORDERS_STAGING
 CREATE OR REPLACE NOTIFICATION INTEGRATION my_email_int
   TYPE=EMAIL
   ENABLED=TRUE
-  DEFAULT_RECIPIENTS = ('udrao8899@gmail.com')
+  DEFAULT_RECIPIENTS = ('ss@gmail.com')
   DEFAULT_SUBJECT = 'Service status';
 
 
@@ -575,7 +575,7 @@ BEGIN
 
     CALL SYSTEM$SEND_EMAIL(
         'my_email_int',
-        'udrao8899@gmail.com',
+        'sss@gmail.com',
         'Email Alert: Data Load Status:',
         'Successfully Data has loaded'
       );
@@ -588,7 +588,7 @@ BEGIN
 
   CALL SYSTEM$SEND_EMAIL(
     'my_email_int',
-    'udrao8899@gmail.com',
+    'ss@gmail.com',
      'Email Alert: Data Load Status:',
     'Already File(s) has been Processed, Please cross verify once'
   );
