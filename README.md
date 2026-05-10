@@ -4,4 +4,4 @@
 2) snowpipe https://youtu.be/RQcPBLKi6PQ
 
 # dbt
-1) https://youtu.be/hgfXYlmekIk
+1) part1 https://youtu.be/hgfXYlmekIk
