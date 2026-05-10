@@ -1,15 +1,54 @@
-Welcome to your new dbt project!
+# MovieLens dbt + Snowflake Pipeline
 
-### Using the starter project
+End-to-end data pipeline built with **dbt**, **Snowflake**, and **AWS** on the MovieLens dataset.
 
-Try running the following commands:
-- dbt run
-- dbt test
+---
 
+## Pipeline Architecture
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+![Pipeline Infographic](Screenshot%202026-05-09%20225125.png)
+
+---
+
+## Project Structure
+
+```
+dbtnew/
+├── models/
+│   ├── staging/        # Raw → cleaned (views & tables)
+│   ├── dim/            # Dimension models (tables)
+│   └── fct/            # Fact models (tables)
+├── dbt_project.yml
+└── infographic.html    # Visual pipeline (open in browser)
+```
+
+## Key Concepts Used
+
+| Concept | Usage |
+|---|---|
+| `{{ ref() }}` | Reference other dbt models |
+| `{{ source() }}` | Reference raw Snowflake tables |
+| `{{ config(materialized='table') }}` | Control table vs view |
+| `profiles.yml` | Controls output schema (RAW → DEV) |
+| Jinja templating | Dynamic SQL via `{{ }}` |
+| CTE pattern | `with x as (...)` in every model |
+
+## Snowflake Setup
+
+- **Database:** `MOVIELENS`
+- **Source Schema:** `RAW` (raw loaded tables)
+- **Output Schema:** `DEV` (dbt output, set in `profiles.yml`)
+- **Warehouse:** `COMPUTE_WH`
+- **Role:** `TRANSFORM`
+
+## Run the Project
+
+```bash
+pip install dbt-snowflake
+
+dbt run
+
+dbt run --select src_movies
+
+dbt test
+```
