@@ -5,3 +5,4 @@
 
 # dbt
 1) part1 https://youtu.be/hgfXYlmekIk
+2) part2 https://www.youtube.com/watch?v=uRFPALO5Vws
