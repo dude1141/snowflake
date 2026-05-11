@@ -1,15 +1,49 @@
-Welcome to your new dbt project!
+# MovieLens dbt + Snowflake Pipeline
 
-### Using the starter project
+End-to-end data pipeline built with **dbt**, **Snowflake**, and **AWS** on the MovieLens dataset.
 
-Try running the following commands:
-- dbt run
-- dbt test
+---
 
+## Pipeline Architecture
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+![Pipeline Infographic](Screenshot%202026-05-09%20225125.png)
+
+---
+
+## Project Structure
+
+```
+dbtnew/
+├── models/
+│   ├── staging/        # Raw → cleaned (views & tables)
+│   ├── dim/            # Dimension models (tables + ephemeral)
+│   └── fct/            # Fact models (table, incremental, ephemeral)
+├── dbt_project.yml
+└── infographic.html    # Visual pipeline (open in browser)
+```
+
+## Materialization Types Used
+
+| Type | Models |
+|---|---|
+| `view` | src_movies, src_ratings, src_raw_links, src_genome_scores, src_genome_tags |
+| `table` | src_tags, dim_movies, dim_users, dim_genome_tags, fct_genome_scores |
+| `incremental` | fct_ratings |
+| `ephemeral` | dim_movies_with_tags, ep_movie_with_tags |
+
+## Snowflake Setup
+
+- **Database:** `MOVIELENS`
+- **Source Schema:** `RAW`
+- **Output Schema:** `DEV` (set in `profiles.yml`)
+- **Warehouse:** `COMPUTE_WH`
+- **Role:** `TRANSFORM`
+
+## Run the Project
+
+```bash
+pip install dbt-snowflake
+dbt run
+dbt run --select src_movies
+dbt test
+```
